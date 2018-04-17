@@ -15,24 +15,31 @@ public class GUIDemo extends JFrame
     private JPanel panel;
     private JButton biggerButton;
     private JButton smallerButton;
-
+    private JButton teleportButton;
+    private JButton randomSizeButton;
+    
     /**
      * Set up the application.
      */
     public GUIDemo()
     {
-	// CONSTRUCTOR NEEDS TO BE FINISHED!
         setTitle("Bigger/Smaller");
         setSize(200, 100);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         panel = new JPanel();
         biggerButton = new JButton("BIGGER");
         smallerButton = new JButton("SMALLER");
+        teleportButton = new JButton("TELEPORT!");
+        randomSizeButton = new JButton("RANDOM SIZE");
         biggerButton.addActionListener(new ButtonHandler());
         smallerButton.addActionListener(new ButtonHandler());
+        teleportButton.addActionListener(new TeleportButtonHandler());
+        randomSizeButton.addActionListener(new RandomSizeButtonHandler());
         add(panel);
         panel.add(biggerButton);
         panel.add(smallerButton);
+        panel.add(teleportButton);
+        panel.add(randomSizeButton);
         setVisible(true);
     }
 
@@ -60,6 +67,35 @@ public class GUIDemo extends JFrame
             }
 
         }
+    }
+    
+    private class TeleportButtonHandler implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+				
+			int newLocationX = (int)((Math.random() * 1920) + 1);
+				
+			int newLocationY = (int)((Math.random() * 1080) + 1);
+				
+			setLocation(newLocationX, newLocationY);
+		}
+  
+    }
+    
+    private class RandomSizeButtonHandler implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+			int newLocationX = (int)((Math.random() * 1920) + 1);
+			
+			int newLocationY = (int)((Math.random() * 1080) + 1);
+			
+			setSize(newLocationX, newLocationY);
+			
+		}
+  
     }
 
     /**

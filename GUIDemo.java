@@ -7,7 +7,7 @@ import javax.swing.*;
 /**
  * Minimal Java Swing application.
  * 
- * @author Nathan Sprague
+ * @author Nathan Sprague and Anthony Clarke
  * 
  */
 public class GUIDemo extends JFrame
